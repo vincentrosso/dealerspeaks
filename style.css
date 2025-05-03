@@ -23,11 +23,12 @@ body {
 
 .button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Increase min width */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Slightly reduce min width if needed */
     gap: 20px;
-    width: 90%; /* Make the button container wider */
-    max-width: 600px; /* Limit maximum width of buttons */
+    width: 90%;
+    max-width: 720px; /* Slightly increase max width if needed */
 }
+
 
 button {
     padding: 25px 30px; /* Increase padding for larger buttons */
