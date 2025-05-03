@@ -1,24 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech Buttons with Voice Selection</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div>
-        <label for="voiceSelect">Select Voice:</label>
-        <select id="voiceSelect"></select>
-    </div>
-    <div class="button-container">
-        <button data-text="raise">Raise</button>
-        <button data-text="fold">Fold</button>
-        <button data-text="check">Check</button>
-        <button data-text="bet">Bet</button>
-        <button data-text="all in">All In</button>
-    </div>
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+#voiceSelect {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px; /* Add space below the dropdown */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%; /* Make the dropdown wider */
+    max-width: 300px; /* Limit maximum width */
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Increase min width */
+    gap: 20px;
+    width: 90%; /* Make the button container wider */
+    max-width: 600px; /* Limit maximum width of buttons */
+}
+
+button {
+    padding: 25px 30px; /* Increase padding for larger buttons */
+    font-size: 20px; /* Increase font size */
+    cursor: pointer;
+    border: none;
+    border-radius: 10px; /* Make corners more rounded */
+    background-color: #007bff;
+    color: white;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    min-height: 60px; /* Ensure a minimum height for better touch targets */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
