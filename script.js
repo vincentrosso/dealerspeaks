@@ -1,18 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.button-container button');
     const voiceSelect = document.getElementById('voiceSelect');
+    const logOutput = document.getElementById('logOutput'); // Get the textarea element
     let availableVoices = [];
+
+    function logMessage(message) {
+        logOutput.value += message + '\n';
+        logOutput.scrollTop = logOutput.scrollHeight; // Auto-scroll to the bottom
+    }
 
     function populateVoiceList() {
         if (typeof responsiveVoice !== 'undefined') {
             availableVoices = responsiveVoice.getVoices();
-            console.log("All Available Voices:", availableVoices);
+            logMessage("All Available Voices:");
+            availableVoices.forEach(voice => {
+                logMessage(`  Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
+            });
+
             voiceSelect.innerHTML = '';
 
             const englishVoices = availableVoices.filter(voice => voice.lang && voice.lang.toLowerCase().startsWith('en'));
-            console.log("Filtered English Voices:", englishVoices);
-
+            logMessage("\nFiltered English Voices:");
             englishVoices.forEach(voice => {
+                logMessage(`  Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
                 const option = document.createElement('option');
                 option.textContent = `${voice.name} (${voice.lang})`;
                 option.value = voice.name;
@@ -28,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         } else {
-            console.warn('responsiveVoice.js not loaded yet.');
+            logMessage('responsiveVoice.js not loaded yet.');
         }
     }
 

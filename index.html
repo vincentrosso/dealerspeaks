@@ -6,6 +6,19 @@
     <title>Speech Buttons with Voice Selection</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <style>
+        #logOutput {
+            width: 90%;
+            max-width: 600px;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap; /* Preserve line breaks */
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -18,7 +31,12 @@
         <button data-text="check">Check</button>
         <button data-text="bet">Bet</button>
         <button data-text="all in">All In</button>
-        <button data-text="straddle">Straddle</button> </div>
+        <button data-text="straddle">Straddle</button>
+    </div>
+    <div>
+        <label for="logOutput">Log Output:</label><br>
+        <textarea id="logOutput" readonly></textarea>
+    </div>
 
     <script src="script.js"></script>
 </body>
