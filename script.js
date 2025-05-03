@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             voiceSelect.innerHTML = '';
 
-            const englishVoices = availableVoices.filter(voice => voice.lang && voice.lang.toLowerCase().startsWith('en'));
+            const englishVoices = availableVoices.filter(voice => voice.lang && voice.lang.toLowerCase().contains('english'));
             logMessage("\nFiltered English Voices:");
             englishVoices.forEach(voice => {
                 logMessage(`  Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
