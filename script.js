@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateVoiceList() {
         if (typeof responsiveVoice !== 'undefined') {
             availableVoices = responsiveVoice.getVoices();
-            voiceSelect.innerHTML = ''; // Clear previous options
+            console.log("All Available Voices:", availableVoices);
+            voiceSelect.innerHTML = '';
 
-            const englishVoices = availableVoices.filter(voice => voice.lang.startsWith('en-'));
+            const englishVoices = availableVoices.filter(voice => voice.lang && voice.lang.toLowerCase().startsWith('en'));
+            console.log("Filtered English Voices:", englishVoices);
 
             englishVoices.forEach(voice => {
                 const option = document.createElement('option');
@@ -17,13 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 voiceSelect.appendChild(option);
             });
 
-            // Optionally set a default English voice if available
             if (englishVoices.length > 0) {
-                const defaultEnglishVoice = englishVoices.find(voice => voice.default); // Try to find a default
+                const defaultEnglishVoice = englishVoices.find(voice => voice.default);
                 if (defaultEnglishVoice) {
                     voiceSelect.value = defaultEnglishVoice.name;
                 } else {
-                    voiceSelect.selectedIndex = 0; // Fallback to the first English voice
+                    voiceSelect.selectedIndex = 0;
                 }
             }
         } else {
