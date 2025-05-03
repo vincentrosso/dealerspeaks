@@ -1,29 +1,45 @@
 body {
     font-family: sans-serif;
     display: flex;
+    flex-direction: column; /* Stack elements vertically */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+#voiceSelect {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px; /* Add space below the dropdown */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%; /* Make the dropdown wider */
+    max-width: 300px; /* Limit maximum width */
 }
 
 .button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Increase min width */
     gap: 20px;
+    width: 90%; /* Make the button container wider */
+    max-width: 600px; /* Limit maximum width of buttons */
 }
 
 button {
-    padding: 15px 25px;
-    font-size: 16px;
+    padding: 25px 30px; /* Increase padding for larger buttons */
+    font-size: 20px; /* Increase font size */
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px; /* Make corners more rounded */
     background-color: #007bff;
     color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
+    min-height: 60px; /* Ensure a minimum height for better touch targets */
 }
 
 button:hover {
