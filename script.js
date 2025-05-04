@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof responsiveVoice !== 'undefined') {
             availableVoices = responsiveVoice.getVoices();
             logMessage("All Available Voices:");
-            availableVoices.forEach(voice => {
-                logMessage(`Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
-            });
+            //availableVoices.forEach(voice => {
+                //logMessage(`Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
+            //});
 
             voiceSelect.innerHTML = '';
 
