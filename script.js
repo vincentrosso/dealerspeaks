@@ -12,19 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateVoiceList() {
         if (typeof responsiveVoice !== 'undefined') {
             availableVoices = responsiveVoice.getVoices();
-            logMessage("All Available Voices:");
+            //logMessage("All Available Voices:");
             //availableVoices.forEach(voice => {
                 //logMessage(`Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
             //});
 
             voiceSelect.innerHTML = '';
 
-            //const englishVoices = availableVoices.filter(voice => voice.name && voice.name.toLowerCase().contains('english'));
+            const englishVoices = availableVoices.filter(voice => voice.name && voice.name.toLowerCase().contains('english'));
             logMessage("\nFiltered English Voices:");
             englishVoices.forEach(voice => {
-                logMessage(`  Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
+                logMessage(`Name: ${voice.name}, Lang: ${voice.lang}, Default: ${voice.default}`);
                 const option = document.createElement('option');
-                option.textContent = `${voice.name} (${voice.lang})`;
+                option.textContent = `${voice.name}`;
                 option.value = voice.name;
                 voiceSelect.appendChild(option);
             });
